@@ -29,7 +29,7 @@ int main() {
   std::chrono::duration<double> diff = end - start;
 
   std::cout << "Is sorted:? " << issorted(arr) << std::endl;
-  std::cout << diff.count();
+  printf("%f", diff.count());
 
   return 0;
 }
