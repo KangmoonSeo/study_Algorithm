@@ -37,7 +37,7 @@ int partition(vector<int>& arr, int left, int right) {
 
 void quickSort(vector<int>& arr, int left, int right) {
   if (left >= right) return;
-  if (right - left < 10) {
+  if (right - left < 15) {
     insertionSort(arr, left, right);
   } else {
     int pivotIndex = partition(arr, left, right);
@@ -48,5 +48,4 @@ void quickSort(vector<int>& arr, int left, int right) {
 
 void sort(std::vector<int>& arr) {
   quickSort(arr, 0, arr.size());
-  // std::sort(arr.begin(), arr.end());
 }
