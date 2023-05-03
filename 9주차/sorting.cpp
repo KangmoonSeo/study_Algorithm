@@ -14,7 +14,7 @@ void insertionSort(vector<int>& arr, int left, int right) {
     j = i - 1;
     while (j >= 0 && arr[j] > key) {
       arr[j + 1] = arr[j];
-      j = j - 1;
+      j--;
     }
     arr[j + 1] = key;
   }
@@ -48,4 +48,5 @@ void quickSort(vector<int>& arr, int left, int right) {
 
 void sort(std::vector<int>& arr) {
   quickSort(arr, 0, arr.size());
+  // std::sort(arr.begin(), arr.end());
 }

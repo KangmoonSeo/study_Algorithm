@@ -15,10 +15,10 @@ bool issorted(const std::vector<int>& vec) {
 }
 
 int main() {
-  std::vector<int> arr(1000);
+  std::vector<int> arr(1000000);
   std::random_device rd;
   std::mt19937 gen(rd());
-  std::uniform_int_distribution<> dis(1, 100000);
+  std::uniform_int_distribution<> dis(1, 10000000);
   for (int& x : arr) {
     x = dis(gen);
   }
