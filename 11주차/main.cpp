@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <string>
 #include <unordered_map>
 using namespace std;
 
@@ -27,32 +26,32 @@ unordered_map<char, int> makeFreq(string const& input) {
 }
 
 PQ_nodeptr makePQ(unordered_map<char, int> const& freq) {
-  PQ_nodeptr PQ;
+  PQ_nodeptr pq;
   for (auto v : freq) {
     nodetype* n = new nodetype;
     n->frequency = v.second;
     n->symbol = v.first;
     n->left = nullptr;
     n->right = nullptr;
-    PQ.push(n);
+    pq.push(n);
   }
-  return PQ;
+  return pq;
 }
 
-nodetype* makeTree(PQ_nodeptr PQ) {
-  while (PQ.size() > 1) {
-    nodetype* a = PQ.top();
-    PQ.pop();
-    nodetype* b = PQ.top();
-    PQ.pop();
+nodetype* makeTree(PQ_nodeptr pq) {
+  while (pq.size() > 1) {
+    nodetype* a = pq.top();
+    pq.pop();
+    nodetype* b = pq.top();
+    pq.pop();
     nodetype* n = new nodetype;
     n->symbol = 0;
     n->frequency = a->frequency + b->frequency;
     n->left = a;
     n->right = b;
-    PQ.push(n);
+    pq.push(n);
   }
-  return PQ.top();  // pointer of root
+  return pq.top();  // pointer of root
 }
 
 void generateHuffmanCodes(const nodetype* nodeptr, string code,
@@ -64,7 +63,7 @@ void generateHuffmanCodes(const nodetype* nodeptr, string code,
 
 int main() {
   // input string
-  const string input_s = "this is test string";
+  const string input_s = "this is a test string";
   // string -> freq
   const unordered_map<char, int> freq = makeFreq(input_s);
   // freq -> PQ
@@ -88,4 +87,5 @@ int main() {
 
   cout << "input string: " << input_s << "\n";
   cout << "Encoded string: " << encoded_s << "\n";
+  cout << "Encoded size: " << encoded_s.size() << "\n";
 }
