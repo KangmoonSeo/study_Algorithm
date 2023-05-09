@@ -1,7 +1,7 @@
 # 정렬
 - 주어진 string을 Huffman code table을 구하고, 이를 이용해서 압축하는 프로그램을 작성하시오.
 - 예시
-```bash
+```
 $./a.out
 Huffman code table:
 s:111
