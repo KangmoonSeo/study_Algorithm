@@ -11,9 +11,10 @@ int intarray[8][9] = {
 
 int main() {
   int ans = -1e9;
+  int tx;
+  int max_x;
   for (int j = 1; j < 8; j++) {
     for (int i = 0; i < 9; i++) {
-      int tx;
       if (i == 0) {
         tx = intarray[j - 1][i] > intarray[j - 1][i + 1] ? i : i + 1;
       } else if (i == 8) {
@@ -29,10 +30,15 @@ int main() {
           tx = i;
       }
       intarray[j][i] += intarray[j - 1][tx];
-      cout << "[" << j - 1 << "," << tx << "] ";   // 선택한 index
-      if (j == 7) ans = max(ans, intarray[j][i]);  // intarray[7][i]의 최대
+      cout << "[" << j - 1 << "," << tx << "] ";  // 선택한 index
+      if (j == 7) {
+        if (intarray[j][i] > ans) {
+          max_x = i;
+          ans = intarray[j][i];  // intarray[7][i]의 최대
+        }
+      }
     }
     cout << "\n";
   }
-  cout << "\n숫자의 합이 가장 높은 값: " << ans << "\n";
+  cout << "\n숫자의 합이 가장 높은 값 [7," << max_x << "]: " << ans << "\n";
 }
